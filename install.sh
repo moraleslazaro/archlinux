@@ -20,13 +20,13 @@ printf "[${BLD}DONE${RST}]\n"
 read -p "Enter disk name: " DISKNAME
 
 # Verify the disk is valid
-until [ -b "/dev/${DISK_NAME}"  ]
+until [ -b "/dev/${DISKNAME}"  ]
 do
    read -p "Invalid disk name. Try again: " DISKNAME
 done
 
 printf "${BLD}WARNING${RST}: All the information stored in "
-printf "${BLD}/dev/${DISK_NAME}${RST} will be erased\n"
+printf "${BLD}/dev/${DISKNAME}${RST} will be erased\n"
 
 # Create partitions using fdisk
 # A simple layout with three partitions will be created:

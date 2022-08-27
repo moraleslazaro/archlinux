@@ -99,7 +99,7 @@ printf "${HOSTNAME}\n" > /etc/hostname
 printf "Installing packages...\n"
 for package in $(curl -s ${PKG_LIST} | awk '{ print $1 }')
 do
-    pacman -S $package
+    pacman -Sy $package
 done
 
 # Set root password

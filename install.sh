@@ -14,7 +14,6 @@ ls /sys/firmware/efi/efivars
 # Update the system clock
 printf "Updating the system clock... "
 timedatectl set-ntp true
-printf "[${BLD}DONE${RST}]\n"
 
 # Format disk and create partitions
 read -p "Enter disk name: " DISKNAME

@@ -59,7 +59,7 @@ mkfs.ext4 /dev/sda3      # root parition
 
 # Enable SWAP
 printf "Enabling SWAP...\n"
-swapon /dev/sda2
+swapon -v /dev/sda2
 
 # Mount partitions
 printf "Mounting partitions...\n"

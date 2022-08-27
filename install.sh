@@ -9,11 +9,11 @@ PKG_LIST="https://geo.mirror.pkgbuild.com/iso/latest/arch/pkglist.x86_64.txt"
 
 # Verify the boot mode
 printf "Verifying the boot mode (${BLD}BIOS${RST} mode will not show anything)...\n"
-#ls /sys/firmware/efi/efivars
+ls /sys/firmware/efi/efivars
 
 # Update the system clock
 printf "Updating the system clock... "
-#timedatectl set-ntp true
+timedatectl set-ntp true
 printf "[${BLD}DONE${RST}]\n"
 
 # Format disk and create partitions

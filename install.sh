@@ -66,13 +66,8 @@ printf "Mounting partitions...\n"
 mount -v /dev/sda3 /mnt # Root partition
 mount -v --mkdir /dev/sda1 /mnt/boot  # EFI partition
 
-# Install all the packages included in the live system
-# instead of installing only 'base' 'linux' and 'linux-firmware'
-printf "Installing packages...\n"
-for package in $(curl -s ${PKG_LIST} | awk '{ print $1 }')
-do
-    pacstrap /mnt $package
-done
+# Install minimal package set
+pacstrap /mnt base linux linux-firmware
 
 # Generate fstab
 printf "Generating ${BLD}fstab${RST}...\n"
@@ -99,6 +94,13 @@ printf "LANG=en_US.UTF-8\n" > /etc/locale.conf
 # Save hostname
 read -p "Enter hostname: " HOSTNAME
 printf "${HOSTNAME}\n" > /etc/hostname
+
+# Install all the packages included in the live system
+printf "Installing packages...\n"
+for package in $(curl -s ${PKG_LIST} | awk '{ print $1 }')
+do
+    pacman -S $package
+done
 
 # Set root password
 printf "Setting up ${BLD}root${RST} password...\n"

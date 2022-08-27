@@ -12,7 +12,7 @@ printf "Verifying the boot mode (${BLD}BIOS${RST} mode will not show anything)..
 ls /sys/firmware/efi/efivars
 
 # Update the system clock
-printf "Updating the system ${BLD}clock${RST}...\n\n"
+printf "Updating the system ${BLD}clock${RST}...\n"
 timedatectl set-ntp true
 
 # Format disk and create partitions
